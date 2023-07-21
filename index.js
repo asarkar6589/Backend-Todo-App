@@ -23,11 +23,6 @@ app.use(cors({
     credentials: true,
 }));
 
-// Handle preflight requests
-app.options('*', (req, res) => {
-    res.status(200).end();
-});
-
 app.use(userRouter);
 app.use(taskRouter);
 
