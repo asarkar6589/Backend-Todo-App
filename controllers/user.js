@@ -26,7 +26,9 @@ export const register = async (request, response) => {
 
         response.cookie("token", token, {
             httpOnly: true,
-            maxAge: 30 * 60 * 1000
+            maxAge: 30 * 60 * 1000,
+            sameSite: "none",
+            secure: true
         }).status(200).json({
             success: true,
             message: "User Registered Successfully"
@@ -68,7 +70,9 @@ export const login = async (request, response) => {
 
         response.cookie("token", token, {
             httpOnly: true,
-            maxAge: 30 * 60 * 1000
+            maxAge: 30 * 60 * 1000,
+            sameSite: "none",
+            secure: true
         }).json({
             success: true,
             message: `Welcome Back, ${isUser.name} 😀`
@@ -121,7 +125,9 @@ export const logout = async (request, response) => {
     try {
         response.cookie("token", "", {
             httpOnly: true,
-            expires: new Date(Date.now())
+            expires: new Date(Date.now()),
+            sameSite: "none",
+            secure: true
         }).json({
             success: true,
             message: `Logged Out Successfully. Thank you for visiting`,

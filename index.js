@@ -17,8 +17,7 @@ app.use(express.json()); // for getting data from body.
 app.use(cookieParser()); // for geting the value of cookie from body.
 
 app.use(cors({
-    // origin: "https://frontend-todo-app-xi.vercel.app",
-    origin: process.env.FRONTEND_URL,
+    origin: [process.env.FRONTEND_URL],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));
