@@ -66,10 +66,16 @@ export const login = async (request, response) => {
             _id: isUser._id,
         }, process.env.SECRET_KEY);
 
-        response.cookie("token", token, {
+        /*
+        
+        {
             httpOnly: true,
             maxAge: 30 * 60 * 1000
-        }).json({
+        }
+        
+        */
+
+        response.cookie("token", token).json({
             success: true,
             message: `Welcome Back, ${isUser.name} 😀`
         })
